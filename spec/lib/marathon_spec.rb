@@ -33,8 +33,9 @@ describe MarathonLogs do
         # expect(subject.create_log(duration: 10, distance: 8)).to include(expected)
         # expect(subject.create_log(...)).to include(expected)
         subject.create_log(duration: 10, distance: 8)
-        expect(subject.logs).to include(expected)
-        puts "Duration: #{ expected[ :duration ] } hour/s, Distance: #{ expected[ :distance ] } km/s."
+        # expect(subject.logs).to include(expected)
+        expect(subject.logs).to include( { duration: 10, distance: 8 } )
+        # puts "Duration: #{ expected[ :duration ] } hour/s, Distance: #{ expected[ :distance ] } km/s."
       end
     end
   end
@@ -65,15 +66,25 @@ describe MarathonLogs do
   #   context "when there are duration logs" do
   #     before do
   #       2.times do
-  #         subject.create_log(duration: rand(10))
+  #         subject.create_log(duration: 5, distance: rand(10))
   #       end
   #     end
 
   #     it "this returns the total duration of logs" do
-  #       expect(subject.logs.count).to eql(2)
+  #       expect(subject.logs.duration).to eql(2)
   #     end
   #   end
   # end
+  describe "#total_duration" do
+    context "when there are duration logs" do
+      let(:expected_duration) { { duration: 5, distance: 5 } }
+
+      it "this returns the total duration of logs" do
+        subject.create_log(duration: 5, distance: 5)
+        expect(subject.logs).to include (expected_duration)
+      end
+    end
+  end
 end
 
 
