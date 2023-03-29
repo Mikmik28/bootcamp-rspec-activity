@@ -10,7 +10,7 @@ class MarathonLogs
   def create_log(duration:, distance:)
     logs << { duration: duration, distance: distance }
     #puts "Duration: #{duration} hour/s, Distance: #{distance} km/s."
-    "Duration: #{duration} hour/s, Distance: #{distance} km/s."
+     "Duration: #{duration} hour/s, Distance: #{distance} km/s."
   end
   
 
@@ -19,7 +19,7 @@ class MarathonLogs
     puts "Count Logs : #{logs.count}."
   end
 
-  def total_duration
+  def total_duration(logs)
     logs.reduce(0) { |total, log| total + log.duration }
   end
 
