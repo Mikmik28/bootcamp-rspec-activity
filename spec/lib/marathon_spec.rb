@@ -23,28 +23,32 @@ describe MarathonLogs do
       it "logs the duration and distance" do
         subject.create_log(duration: 10, distance: 8)
         expect(subject.logs).to include(expected)
-
-        puts "Duration: #{expected[:duration]} hour/s, Distance: #{expected[:distance]} km/s."
       end
+
 
       # 1. create a spec when user create a log with a 
       # duration of 10 and distance of 8, and should shows a message:
       # "Duration: 10 hour/s, Distance: 8 km/s."
+      it "log expected output string" do
+        expected_output = "Duration: #{expected[:duration]} hour/s, Distance: #{expected[:distance]} km/s."
+        expect(subject.create_log(duration: 10, distance: 8)).to include(expected_output)
+      end
     end
   end
 
  
   describe "#count_logs" do 
+    number_of_logs = 2
     context "count the logs inside an array" do 
       before do
-        2.times do
+        number_of_logs.times do
           subject.create_log(duration: 10, distance: 8)
         end
       end
 
       it "returns the total logs inside of na array" do 
         # to match how many indeces inside an array
-        expect(subject.logs.count).to eq subject.logs.count
+        expect(subject.logs.count).to eq number_of_logs
       end
     end
   end
