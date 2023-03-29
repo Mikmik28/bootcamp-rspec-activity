@@ -35,14 +35,16 @@ describe MarathonLogs do
 
   # 2. describe "#count_logs"
   describe "#count_logs" do
-    before do
-      2.times do
-        subject.create_log(duration: 10, distance: 8)
+    context "when logged twice" do
+      before do
+        2.times do
+          subject.create_log(duration: 10, distance: 8)
+        end
       end
-    end
 
-    it "returns 2" do
-      expect(subject.count_logs).to eql 2
+      it "returns 2" do
+        expect(subject.count_logs).to eql 2
+      end
     end
   end
 
