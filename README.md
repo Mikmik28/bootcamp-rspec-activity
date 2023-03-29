@@ -6,7 +6,7 @@
 
 2. describe "#count_logs"
 - create a logs as much as you want
-- it should return the total logs
+- it should count the total logs
 
 ## Bonus Challenge!!!
 
