@@ -32,6 +32,7 @@ describe MarathonLogs do
       it "log expected output string" do
         expected_output = "Duration: #{expected[:duration]} hour/s, Distance: #{expected[:distance]} km/s."
         expect(subject.create_log(duration: 10, distance: 8)).to include(expected_output)
+        puts expected_output
       end
     end
   end
