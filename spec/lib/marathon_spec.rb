@@ -37,7 +37,7 @@ describe MarathonLogs do
     end
   end
 
- 
+    # 2. describe "#count_logs"
   describe "#count_logs" do 
     number_of_logs = 2
     context "count the logs inside an array" do 
@@ -53,7 +53,43 @@ describe MarathonLogs do
       end
     end
   end
-  # 2. describe "#count_logs"
+
+  #testing total duration
+  describe "#total_duration" do
+  context "when getting total duration" do 
+    before do 
+      subject.create_log(duration: 10, distance: 8)
+      subject.create_log(duration: 12, distance: 8)
+      subject.create_log(duration: 13, distance: 8)
+      subject.create_log(duration: 15, distance: 8)
+      subject.create_log(duration: 15, distance: 8)
+    end
+
+    it "return total dutation" do 
+      expect(subject.total_duration).to eq subject.total_duration
+      puts "the total distance is: #{subject.total_duration}"
+      
+    end
+  end
+
+  # testing total distance
+  describe "#total_distance" do
+  context "when getting total distance" do 
+    before do 
+      subject.create_log(duration: 10, distance: 2)
+      subject.create_log(duration: 12, distance: 5)
+      subject.create_log(duration: 13, distance: 10)
+      subject.create_log(duration: 15, distance: 13)
+      subject.create_log(duration: 15, distance: 4)
+    end
+
+    it "return total distance" do 
+      expect(subject.total_distance).to eq subject.total_distance
+      puts "the total distance is: #{subject.total_distance}"
+    end
+  end
+end
+end
 end
 
 
