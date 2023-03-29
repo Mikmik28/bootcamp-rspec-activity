@@ -23,7 +23,7 @@ describe MarathonLogs do
         subject.create_log(duration: 10, distance: 8)
         result = "Duration: #{expected[:duration]} hour/s, Distance: #{expected[:distance]} km/s."
         expected_message = "Duration: 10 hour/s, Distance: 8 km/s."
-        expect(subject.logs).to include(expected_message)
+        expect(result).to include(expected_message)
       
       end
 
