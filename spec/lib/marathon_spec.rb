@@ -19,9 +19,12 @@ describe MarathonLogs do
     context "when logging a duration of 10 hrs and distance of 8 km" do
       let(:expected) { { duration: 10, distance: 8 } }
 
+
       it "logs the duration and distance" do
         subject.create_log(duration: 10, distance: 8)
         expect(subject.logs).to include(expected)
+
+        puts "Duration: #{expected[:duration]} hour/s, Distance: #{expected[:distance]} km/s."
       end
 
       # 1. create a spec when user create a log with a 
@@ -30,6 +33,21 @@ describe MarathonLogs do
     end
   end
 
+ 
+  describe "#count_logs" do 
+    context "count the logs inside an array" do 
+      before do
+        2.times do
+          subject.create_log(duration: 10, distance: 8)
+        end
+      end
+
+      it "returns the total logs inside of na array" do 
+        # to match how many indeces inside an array
+        expect(subject.logs.count).to eq subject.logs.count
+      end
+    end
+  end
   # 2. describe "#count_logs"
 end
 
