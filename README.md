@@ -1,4 +1,9 @@
 # RSpec activity
+___
+If you want run your spec, run this to your terminal:
+```
+rspec spec/
+```
 
 ## Activity
 1. create a spec when user create a log with a duration of 10 and distance of 8, it shows a message:
