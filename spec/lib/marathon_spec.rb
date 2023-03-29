@@ -66,7 +66,24 @@ describe MarathonLogs do
     end
   end
 
+  #5. describe "#total_distance"
+  describe "#total_distance" do
+    context "when returning the total distance" do
+      let(:expected) { { duration: 10, distance: 8 } }
+  
+      before do
+        3.times do
+          subject.create_log( duration: 10, distance: 8)
+        end
+      end
 
+      it "should count the total distance" do
+        total = subject.logs.count * expected[:distance]
+        expect(total).to eq 24
+        puts  "Total Distance: #{total} km/s."
+      end
+    end
+  end
 
 end
 
