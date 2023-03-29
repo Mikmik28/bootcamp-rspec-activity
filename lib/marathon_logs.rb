@@ -21,6 +21,7 @@ class MarathonLogs
     logs.reduce(0) { |total, log| total + log[:duration] }
   end
 
+  # 6 defining total_distance
   def total_distance
     logs.reduce(0) { |total, log| total + log[:distance] }
   end
