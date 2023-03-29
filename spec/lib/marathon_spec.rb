@@ -26,8 +26,6 @@ describe MarathonLogs do
         puts "Duration: #{expected[:duration]} hour/s, Distance: #{expected[:distance]} km/s."
       end
 
-      #puts expected.duration
-      #puts "Duration: duration hour/s, Distance:  km/s."
       # 1. create a spec when user create a log with a 
       # duration of 10 and distance of 8, and should shows a message:
       # "Duration: 10 hour/s, Distance: 8 km/s."
@@ -45,11 +43,10 @@ describe MarathonLogs do
 
       it "should count the total logs" do
         expect(subject.logs.count).to eq 3
-        p subject.logs.count
+        subject.count_logs
       end
     end
    end
-
 
 end
 
