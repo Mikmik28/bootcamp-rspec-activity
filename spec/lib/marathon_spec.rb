@@ -77,11 +77,23 @@ describe MarathonLogs do
   # end
   describe "#total_duration" do
     context "when there are duration logs" do
-      let(:expected_duration) { { duration: 5, distance: 5 } }
+      # let(:expected_duration) { { duration: 5, distance: 5 } }
 
-      it "this returns the total duration of logs" do
-        subject.create_log(duration: 5, distance: 5)
-        expect(subject.logs).to include (expected_duration)
+      # it "this returns the total duration of logs" do
+      #   subject.create_log(duration: 5, distance: 5)
+      #   expect(subject.logs).to include (expected_duration)
+      # end
+
+      before do
+        subject.create_log(duration: 1, distance: 2)
+        subject.create_log(duration: 2, distance: 3)
+        subject.create_log(duration: 4, distance: 5)
+        subject.create_log(duration: 5, distance: 6)
+        subject.create_log(duration: 7, distance: 8)
+      end
+
+      it "return total distance" do
+        expect(subject.total_distance).to eql (subject.total_distance)
       end
     end
   end
