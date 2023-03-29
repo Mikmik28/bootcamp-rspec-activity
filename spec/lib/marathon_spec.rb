@@ -27,10 +27,41 @@ describe MarathonLogs do
       # 1. create a spec when user create a log with a 
       # duration of 10 and distance of 8, and should shows a message:
       # "Duration: 10 hour/s, Distance: 8 km/s."
+      it "display the correct message of the duration which is 10 hour/s and distance of 8 km/s" do
+        # puts "Duration: 10 hour/s, Distance: 8 km/s"
+        # puts "Duration: #{subject.duration} hour/s, Distance: #{subject.distance} km/s"
+        # expect(subject.create_log(duration: 10, distance: 8)).to include(expected)
+        subject.create_log(duration: 10, distance: 8)
+        expect(subject.logs).to include(expected)
+        puts "Duration: #{ expected[ :duration ] } hour/s, Distance: #{ expected[ :distance ] } km/s."
+      end
     end
   end
 
   # 2. describe "#count_logs"
+  describe "#count_logs" do
+    context "when there are no logs" do
+      it "returns 0" do
+        expect(subject.logs.count).to eql(0)
+      end
+    end
+
+    context "when there are logs" do
+      before do
+        3.times do
+          subject.create_log(duration: rand(10), distance: rand(8))
+        end
+      end
+
+      it "this returns the correct number of logs" do
+        expect(subject.logs.count).to eql(3)
+      end
+    end
+  end
+
+  # 3. describe "#total_duration"
+  describe "#total_duration" do
+  end
 end
 
 
