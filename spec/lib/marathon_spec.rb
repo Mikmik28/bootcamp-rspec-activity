@@ -50,6 +50,38 @@ describe MarathonLogs do
 
     end
   end
+
+  describe "#total_duration" do
+    context "when creating the a set of logs" do
+      #create a static set of logs to easily enumarate total duration (13)
+      before do
+        subject.create_log(duration: 3, distance: rand(10))
+        subject.create_log(duration: 4, distance: rand(10))
+        subject.create_log(duration: 5, distance: rand(10))
+        subject.create_log(duration: 1, distance: rand(10))
+      end
+
+      it "should return the total duration of 13" do
+        expect(subject.total_duration).to eq 13
+      end
+    end
+  end
+
+  describe "#total_distance" do
+    context "when creating the a set of logs" do
+      #create a static set of logs to easily enumarate total distance (9)
+      before do
+        subject.create_log(duration: rand(10), distance: 3)
+        subject.create_log(duration: rand(10), distance: 1)
+        subject.create_log(duration: rand(10), distance: 5)
+      end
+
+      it "should return the total distance of 9" do
+        expect(subject.total_distance).to eq 9
+      end
+    end
+  end
+
 end
 
 
