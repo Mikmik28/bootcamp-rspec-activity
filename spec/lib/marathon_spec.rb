@@ -75,8 +75,8 @@ describe MarathonLogs do
   #     end
   #   end
   # end
-  describe "#total_duration" do
-    context "when there are duration logs" do
+  describe "#distance" do
+    context "when there are distance logs" do
       # let(:expected_duration) { { duration: 5, distance: 5 } }
 
       # it "this returns the total duration of logs" do
