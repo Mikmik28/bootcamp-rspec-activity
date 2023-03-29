@@ -22,7 +22,6 @@ describe MarathonLogs do
       it "logs the duration and distance" do
         subject.create_log(duration: 10, distance: 8)
         expect(subject.logs).to include(expected)
-
         puts "Duration: #{expected[:duration]} hour/s, Distance: #{expected[:distance]} km/s."
       end
 
@@ -47,6 +46,26 @@ describe MarathonLogs do
       end
     end
    end
+
+  #3. describe "#total_duration"
+   describe "#total_duration" do
+    context "when returning the total duration" do
+      let(:expected) { { duration: 10, distance: 8 } }
+   
+      before do
+        3.times do
+          subject.create_log( duration: 10, distance: 8)
+        end
+      end
+
+      it "should count the total duration" do
+        total = subject.logs.count * expected[:duration]
+        expect(total).to eq 30
+        puts  "Total Duration: #{total} hour/s"
+      end
+    end
+  end
+
 
 
 end
