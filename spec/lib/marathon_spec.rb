@@ -22,7 +22,6 @@ describe MarathonLogs do
       it "logs the duration and distance" do
         subject.create_log(duration: 10, distance: 8)
         expect(subject.logs).to include(expected)
-        puts "Duration: #{expected[:duration]} hour/s, Distance: #{expected[:distance]} km/s."
       end
 
     end
