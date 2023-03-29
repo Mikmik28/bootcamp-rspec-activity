@@ -5,6 +5,7 @@ class MarathonLogs
     @logs = []
   end
 
+
   # duration attribute is by hour
   # distance attribute is by km
   def create_log(duration:, distance:)
