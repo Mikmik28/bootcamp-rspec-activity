@@ -1,4 +1,9 @@
 # RSpec activity
+___
+If you want run your spec, run this to your terminal:
+```
+rspec spec/
+```
 
 ## Activity
 1. create a spec when user create a log with a duration of 10 and distance of 8, it shows a message:
@@ -6,7 +11,7 @@
 
 2. describe "#count_logs"
 - create a logs as much as you want
-- it should return the total logs
+- it should count the total logs
 
 ## Bonus Challenge!!!
 
