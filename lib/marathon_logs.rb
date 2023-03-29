@@ -9,11 +9,12 @@ class MarathonLogs
   # distance attribute is by km
   def create_log(duration:, distance:)
     logs << { duration: duration, distance: distance }
-    puts "Duration: #{duration} hour/s, Distance: #{distance} km/s."
+    #puts "Duration: #{duration} hour/s, Distance: #{distance} km/s."
   end
 
   def count_logs
     logs.count
+    puts "Count Logs : #{logs.count}."
   end
 
   def total_duration
